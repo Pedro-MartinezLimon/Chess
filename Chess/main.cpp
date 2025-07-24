@@ -5,31 +5,22 @@ int main()
 {
 	InitWindow(800, 800, "CoyoChess");
 
-	Texture2D board_img = LoadTexture("Statics/Board.png");
-	Texture2D board_ex_img = LoadTexture("Statics/ChessBoard.png");
-
-	board_ex_img.height = 576;
-	board_ex_img.width = 576;
-
-	board_img.width = 384;
-	board_img.height = 384;
-	
-
+	Texture2D board = LoadTexture("statics/board.png");
+	board.width = 800;
+	board.height = 800;
 
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
 		ClearBackground(LIGHTGRAY);
 
-		DrawTexture(board_ex_img, 112, 112, WHITE);
-		DrawTexture(board_img, 120 + (112 / 1.5), 120 + (112 / 1.5), { 255, 255, 255, 100 });
+		DrawTexture(board, 0, 0, WHITE);
 
 		EndDrawing();
 	}
 
-	UnloadTexture(board_ex_img);
-	UnloadTexture(board_img);
 
+	UnloadTexture(board);
 	CloseWindow();
 	return 0;
 }
